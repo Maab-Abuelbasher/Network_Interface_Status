@@ -3,9 +3,4 @@ kind: ConfigMap
 metadata: 
   name: router-ip 
 data: 
-  APP_MODE: "production" 
-  LOG_LEVEL: "info" 
-  config.json: | 
-    { 
-      "ip_address": "192.168.8.20" 
-    }
+  router-ip: "192.168.8.25"

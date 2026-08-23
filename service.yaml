@@ -1,0 +1,13 @@
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: interface-status-metrics 
+  labels: 
+    app: interface-status 
+spec: 
+  selector: 
+    app: interface-status 
+  ports: 
+    - name: metrics 
+      port: 8000 
+      targetPort: 8000 

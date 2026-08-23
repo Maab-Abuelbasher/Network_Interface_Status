@@ -2,11 +2,16 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: interface-status
+  labels:
+    app: interface-status
 spec:
   containers:
     - name: interface-status
-      image: interface_status:1.0
+      image: interface_status:2.0
       imagePullPolicy: Never
+      env:
+        - name: PYTHONUNBUFFERED
+          value: "1"
       envFrom:                   
         - configMapRef:
             name: router-ip
