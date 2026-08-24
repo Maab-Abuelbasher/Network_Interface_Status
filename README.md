@@ -54,7 +54,7 @@ Local Setup & Execution:
 
 1. Clone the repository:
 
-git clone https://github.com/Maab-Abuelbasher/Network.git
+git clone https://github.com/Maab-Abuelbasher/Network_Interface_Status.git
 cd Network
 
 2. Build the Docker image locally:
