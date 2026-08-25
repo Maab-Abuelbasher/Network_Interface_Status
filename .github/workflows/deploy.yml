@@ -17,4 +17,4 @@ jobs:
       - name: Redeploy pod
         run: |
           kubectl delete pod interface-status --ignore-not-found
-          kubectl apply -f pod.yaml
+          kubectl apply -f pod.yaml 
