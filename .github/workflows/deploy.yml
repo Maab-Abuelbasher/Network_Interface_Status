@@ -1,0 +1,20 @@
+name: Build and Deploy to Minikube
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image in minikube's Docker
+        run: |
+          eval $(minikube docker-env)
+          docker build -t interface_status:2.0 .
+
+      - name: Redeploy pod
+        run: |
+          kubectl delete pod interface-status --ignore-not-found
+          kubectl apply -f pod.yaml
