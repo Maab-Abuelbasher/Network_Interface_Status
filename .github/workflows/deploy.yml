@@ -19,7 +19,7 @@ jobs:
           kubectl delete pod interface-status --ignore-not-found
           kubectl apply -f pod.yaml 
 
-       -name: Debug environment
+      - name: Debug environment
         run: |
           echo "PATH=$PATH"
           which minikube || echo "minikube not found"
