@@ -9,6 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Debug environment
+        run: |
+          echo "PATH=$PATH"
+          which minikube || echo "minikube not found"
+          which docker || echo "docker not found"
+          minikube profile list || echo "profile list failed"
+          minikube -p minikube docker-env --shell bash || echo "docker-env failed"
+
       - name: Build image in minikube's Docker
         run: |
           eval $(minikube -p minikube docker-env --shell bash)
@@ -18,11 +26,3 @@ jobs:
         run: |
           kubectl delete pod interface-status --ignore-not-found
           kubectl apply -f pod.yaml 
-
-      - name: Debug environment
-        run: |
-          echo "PATH=$PATH"
-          which minikube || echo "minikube not found"
-          which docker || echo "docker not found"
-          minikube profile list || echo "profile list failed"
-          minikube -p minikube docker-env --shell bash || echo "docker-env failed"
