@@ -1,4 +1,7 @@
 name: Build and Deploy to Minikube
+run: |
+        eval $(minikube -p minikube docker-env --shell bash)
+        docker build -t interface_status:2.0 .
 
 on:
   workflow_dispatch:
